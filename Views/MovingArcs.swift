@@ -42,7 +42,7 @@ class MovingArcs: UIView {
     func addAnimation() {
         let movement = CAKeyframeAnimation(keyPath: "position")
         movement.path = pathShapeLayer().cgPath
-        movement.duration = 10
+        movement.duration = 3
         movement.repeatCount = 1
         movement.rotationMode = CAAnimationRotationMode.rotateAuto
         movement.calculationMode = CAAnimationCalculationMode.paced
@@ -75,8 +75,10 @@ class MovingArcs: UIView {
         backgroundCircleLayer.fillColor = UIColor.clear.cgColor
         backgroundCircleLayer.strokeColor = color.cgColor
         backgroundCircleLayer.lineWidth = 4.0
-        backgroundCircleLayer.position = .init(x: 0, y: 100)
-        backgroundCircleLayer.transform = CATransform3DMakeTranslation(0, -100, 0)
+        backgroundCircleLayer.position = CGPoint(x: 100, y: 0)
+        backgroundCircleLayer.transform = CATransform3DMakeTranslation(-100, 0, 0)
+     //   backgroundCircleLayer.transform = CATransform3DMakeRotation(CGFloat(-180).toRadians(), 0, 0, 1)
+
         self.layer.addSublayer(backgroundCircleLayer)
 
         return backgroundCircleLayer
